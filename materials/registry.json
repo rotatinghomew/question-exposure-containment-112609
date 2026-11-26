@@ -1,0 +1,105 @@
+{
+  "items": [
+    {
+      "item": "c1",
+      "family": "customer",
+      "language": "zh",
+      "ability": "澄清需求"
+    },
+    {
+      "item": "c1e",
+      "family": "customer",
+      "language": "en",
+      "ability": "澄清需求"
+    },
+    {
+      "item": "c2",
+      "family": "field",
+      "language": "zh",
+      "ability": "澄清需求"
+    },
+    {
+      "item": "r1",
+      "family": "recovery",
+      "language": "zh",
+      "ability": "恢复处理"
+    },
+    {
+      "item": "r1e",
+      "family": "recovery",
+      "language": "en",
+      "ability": "恢复处理"
+    },
+    {
+      "item": "r2",
+      "family": "returns",
+      "language": "zh",
+      "ability": "恢复处理"
+    }
+  ],
+  "packages": [
+    {
+      "id": "qa-cn",
+      "language": "zh",
+      "required": [
+        "c1"
+      ],
+      "choices": [
+        {
+          "items": [
+            "r1",
+            "r2"
+          ],
+          "minimum": 1
+        }
+      ],
+      "allowed_substitutes": {
+        "c1": [
+          "c2"
+        ]
+      }
+    },
+    {
+      "id": "qa-en",
+      "language": "en",
+      "required": [
+        "c1e"
+      ],
+      "choices": [
+        {
+          "items": [
+            "r1e"
+          ],
+          "minimum": 1
+        }
+      ],
+      "allowed_substitutes": {}
+    }
+  ],
+  "sittings": [
+    {
+      "id": "S19",
+      "candidate": "u18",
+      "opening": "service-cn",
+      "pack": "qa-cn"
+    },
+    {
+      "id": "S20",
+      "candidate": "u19",
+      "opening": "service-en",
+      "pack": "qa-en"
+    },
+    {
+      "id": "S21",
+      "candidate": "u20",
+      "opening": "service-cn",
+      "pack": "qa-cn"
+    },
+    {
+      "id": "S22",
+      "candidate": "u21",
+      "opening": "service-cn",
+      "pack": "qa-cn"
+    }
+  ]
+}

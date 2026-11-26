@@ -1,0 +1,159 @@
+{
+  "name": "question-exposure-containment",
+  "feeds": {
+    "gateway": [
+      {
+        "sequence": 1,
+        "visible_at": 0,
+        "kind": "prepared",
+        "data": {
+          "sitting": "S19",
+          "pack_version": "qa-cn/1"
+        }
+      },
+      {
+        "sequence": 2,
+        "visible_at": 0,
+        "kind": "prepared",
+        "data": {
+          "sitting": "S20",
+          "pack_version": "qa-en/1"
+        }
+      },
+      {
+        "sequence": 3,
+        "visible_at": 0,
+        "kind": "fetched",
+        "data": {
+          "sitting": "S21",
+          "pack_version": "qa-cn/1",
+          "items": [
+            "c1",
+            "r2"
+          ],
+          "at": "2026-12-01T10:04:00+08:00"
+        }
+      },
+      {
+        "sequence": 4,
+        "visible_at": 2,
+        "kind": "answers",
+        "data": {
+          "sitting": "S21",
+          "items": [
+            "c1",
+            "r2"
+          ],
+          "answer_ref": "answers-21"
+        }
+      },
+      {
+        "sequence": 5,
+        "visible_at": 3,
+        "kind": "fetched",
+        "data": {
+          "sitting": "S22",
+          "pack_version": "qa-cn/1",
+          "items": [
+            "c2",
+            "r1"
+          ],
+          "at": "2026-12-01T10:05:00+08:00"
+        }
+      },
+      {
+        "sequence": 6,
+        "visible_at": 3,
+        "kind": "answers",
+        "data": {
+          "sitting": "S22",
+          "items": [
+            "c2",
+            "r1"
+          ],
+          "answer_ref": "answers-22"
+        }
+      }
+    ],
+    "investigation": [
+      {
+        "sequence": 1,
+        "visible_at": 0,
+        "kind": "report",
+        "data": {
+          "case": "leak-2",
+          "items": [
+            "c1"
+          ],
+          "state": "pending",
+          "at": "2026-12-01T10:06:00+08:00"
+        }
+      },
+      {
+        "sequence": 2,
+        "visible_at": 2,
+        "kind": "evidence",
+        "data": {
+          "case": "leak-2",
+          "items": [
+            "c1",
+            "c1e"
+          ],
+          "state": "confirmed",
+          "at": "2026-12-01T10:20:00+08:00"
+        }
+      },
+      {
+        "sequence": 3,
+        "visible_at": 5,
+        "kind": "reclassification",
+        "data": {
+          "case": "leak-2",
+          "items": [
+            "c1e"
+          ],
+          "replaces": "c1",
+          "state": "confirmed",
+          "at": "2026-12-02T11:00:00+08:00"
+        }
+      }
+    ]
+  },
+  "actions": {
+    "issue-pack": {
+      "fields": [
+        "pack_version",
+        "items"
+      ],
+      "default": {
+        "status": "prepared",
+        "final_status": "fetched",
+        "finish": 1
+      },
+      "overrides": {
+        "S22": {
+          "reveal": 2,
+          "finish": 3
+        }
+      }
+    },
+    "issue-makeup": {
+      "fields": [
+        "package",
+        "original_sitting",
+        "abilities"
+      ],
+      "default": {
+        "status": "received",
+        "final_status": "registered",
+        "finish": 1
+      },
+      "overrides": {
+        "S21": {
+          "reveal": 2,
+          "finish": 3
+        }
+      }
+    }
+  }
+}
